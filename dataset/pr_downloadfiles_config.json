@@ -1,0 +1,38 @@
+{
+	"name": "pr_downloadfiles_config",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adfdatalakestorageacc",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "pr_downloadfiles_config.json",
+				"fileSystem": "config"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"files": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"url": {
+								"type": "string"
+							},
+							"targetPath": {
+								"type": "string"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

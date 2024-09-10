@@ -1,0 +1,9 @@
+{
+	"name": "adfinstanceae",
+	"location": "australiaeast",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "08e893fa-df99-4e97-88f2-997b088a6415",
+		"tenantId": "08efc5a3-1540-4268-92ed-a3aedf90bc7d"
+	}
+}
