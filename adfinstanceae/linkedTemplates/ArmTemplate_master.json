@@ -1,0 +1,84 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adfinstanceae"
+		},
+		"adfblobstorageacc_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'adfblobstorageacc'"
+		},
+		"adfdatalakestorageacc_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'adfdatalakestorageacc'"
+		},
+		"HttpServer_APIConn_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://data.gov.au"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://data.gov.au/data/api/3/action/datastore_search?resource_id=cd69ad9b-428b-46b2-9edc-368fdd4daea6"
+		},
+		"adfdatalakestorageacc_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://storageadfacc.dfs.core.windows.net/"
+		},
+		"ls_HttpServer_Pr_DownloadFiles_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://www.abs.gov.au"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adfinstanceae_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"adfblobstorageacc_connectionString": {
+						"value": "[parameters('adfblobstorageacc_connectionString')]"
+					},
+					"adfdatalakestorageacc_accountKey": {
+						"value": "[parameters('adfdatalakestorageacc_accountKey')]"
+					},
+					"HttpServer_APIConn_properties_typeProperties_url": {
+						"value": "[parameters('HttpServer_APIConn_properties_typeProperties_url')]"
+					},
+					"RestService1_properties_typeProperties_url": {
+						"value": "[parameters('RestService1_properties_typeProperties_url')]"
+					},
+					"adfdatalakestorageacc_properties_typeProperties_url": {
+						"value": "[parameters('adfdatalakestorageacc_properties_typeProperties_url')]"
+					},
+					"ls_HttpServer_Pr_DownloadFiles_properties_typeProperties_url": {
+						"value": "[parameters('ls_HttpServer_Pr_DownloadFiles_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

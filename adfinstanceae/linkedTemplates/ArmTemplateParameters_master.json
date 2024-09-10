@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfinstanceae"
+		},
+		"adfblobstorageacc_connectionString": {
+			"value": ""
+		},
+		"adfdatalakestorageacc_accountKey": {
+			"value": ""
+		},
+		"HttpServer_APIConn_properties_typeProperties_url": {
+			"value": "https://data.gov.au"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"value": "https://data.gov.au/data/api/3/action/datastore_search?resource_id=cd69ad9b-428b-46b2-9edc-368fdd4daea6"
+		},
+		"adfdatalakestorageacc_properties_typeProperties_url": {
+			"value": "https://storageadfacc.dfs.core.windows.net/"
+		},
+		"ls_HttpServer_Pr_DownloadFiles_properties_typeProperties_url": {
+			"value": "https://www.abs.gov.au"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
