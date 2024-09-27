@@ -15,6 +15,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'adfdatalakestorageacc'"
 		},
+		"AzureBlobStorage1_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "storageadfacc-connstring"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://keyvaultmanager.vault.azure.net/"
+		},
 		"HttpServer_APIConn_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://data.gov.au"
@@ -64,6 +72,9 @@
 					"adfdatalakestorageacc_accountKey": {
 						"value": "[parameters('adfdatalakestorageacc_accountKey')]"
 					},
+					"AzureKeyVault1_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
+					},
 					"HttpServer_APIConn_properties_typeProperties_url": {
 						"value": "[parameters('HttpServer_APIConn_properties_typeProperties_url')]"
 					},
@@ -75,10 +86,33 @@
 					},
 					"ls_HttpServer_Pr_DownloadFiles_properties_typeProperties_url": {
 						"value": "[parameters('ls_HttpServer_Pr_DownloadFiles_properties_typeProperties_url')]"
+					},
+					"AzureBlobStorage1_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('AzureBlobStorage1_properties_typeProperties_connectionString_secretName')]"
 					}
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "adfinstanceae_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfinstanceae_ArmTemplate_0')]"
+			]
 		}
 	]
 }

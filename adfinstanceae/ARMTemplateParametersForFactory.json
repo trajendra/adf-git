@@ -11,6 +11,12 @@
 		"adfdatalakestorageacc_accountKey": {
 			"value": ""
 		},
+		"AzureBlobStorage1_properties_typeProperties_connectionString_secretName": {
+			"value": "storageadfacc-connstring"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://keyvaultmanager.vault.azure.net/"
+		},
 		"HttpServer_APIConn_properties_typeProperties_url": {
 			"value": "https://data.gov.au"
 		},
