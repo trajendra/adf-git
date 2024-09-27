@@ -39,6 +39,10 @@
 			"type": "string",
 			"defaultValue": "https://www.abs.gov.au"
 		},
+		"trigger1_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/b19f4e77-c0d5-4f49-9f1e-dd2e74d180fc/resourceGroups/adf-rg/providers/Microsoft.Storage/storageAccounts/blobstorageadfacc"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -107,6 +111,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"trigger1_properties_typeProperties_scope": {
+						"value": "[parameters('trigger1_properties_typeProperties_scope')]"
 					}
 				}
 			},

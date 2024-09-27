@@ -29,6 +29,9 @@
 		"ls_HttpServer_Pr_DownloadFiles_properties_typeProperties_url": {
 			"value": "https://www.abs.gov.au"
 		},
+		"trigger1_properties_typeProperties_scope": {
+			"value": "/subscriptions/b19f4e77-c0d5-4f49-9f1e-dd2e74d180fc/resourceGroups/adf-rg/providers/Microsoft.Storage/storageAccounts/blobstorageadfacc"
+		},
 		"containerUri": {
 			"value": ""
 		},
